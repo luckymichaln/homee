@@ -11,7 +11,7 @@
           </nuxt-link>
         </div>
         <div class="row-col">
-          <p class="col-copy">{{ footerData.footer_text }}</p>
+          <p class="col-copy text">{{ footerData.footer_text }}</p>
         </div>
         <div class="row-col">
           <pageFooterList :links="footerData.body" />

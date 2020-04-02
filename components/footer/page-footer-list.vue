@@ -1,5 +1,5 @@
 <template>
-  <ul class="page-footer__columns">
+  <ul class="page-footer__list">
     <li
       v-for="link in links"
       :key="link.primary.link_url.url"

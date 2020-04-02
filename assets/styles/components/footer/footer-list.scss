@@ -1,0 +1,12 @@
+.page-footer__list {
+  position: relative;
+  display: flex;
+
+  li:not(:last-child) {
+    margin-right: 25px;
+  }
+
+  a {
+    display: flex;
+  }
+}
