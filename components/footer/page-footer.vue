@@ -1,7 +1,6 @@
 <template>
   <footer class="page-footer">
     <div class="container">
-      <pageFooterColumns :columns="footerData.body" />
       <div class="page-footer__row">
         <div class="row-col">
           <nuxt-link
@@ -12,15 +11,10 @@
           </nuxt-link>
         </div>
         <div class="row-col">
-          <div class="col-links">
-            <prismic-link
-              v-for="el in footerData.footer_link"
-              :key="el.link_label"
-              :field="el.link_url">
-              {{ el.link_label }}
-            </prismic-link>
-          </div>
-          <p class="col-copy">{{ footerData.copyrights }}</p>
+          <p class="col-copy">{{ footerData.footer_text }}</p>
+        </div>
+        <div class="row-col">
+          <pageFooterList :links="footerData.body" />
         </div>
       </div>
     </div>
@@ -28,7 +22,7 @@
 </template>
 
 <script>
-import pageFooterColumns from '~/components/footer/page-footer-columns';
+import pageFooterList from '~/components/footer/page-footer-list';
 export default {
   props: {
     footerData: {
@@ -37,8 +31,12 @@ export default {
     }
   },
 
+  mounted() {
+    console.log(this.footerData)
+  },
+
   components: {
-    pageFooterColumns
+    pageFooterList
   }
 }
 </script>

@@ -9,7 +9,7 @@ import homePage from '~/pages/home-page';
 export default {
   async fetch ({ store }) {
     if (!store.getters['pages/homePageData']) {
-      await store.dispatch('pages/GET_SINGLE_PAGE_DATA', { pageType: 'home_page' })
+      await store.dispatch('pages/GET_SINGLE_PAGE_DATA', { pageType: 'hero_home' })
     }
   },
 

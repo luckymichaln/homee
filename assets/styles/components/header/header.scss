@@ -1,7 +1,5 @@
 .page-header {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   z-index: 1000;
   width: 100%;
   background-color: transparent;
@@ -15,7 +13,7 @@
   &__nav {
     .nav-list {
       display: flex;
-      padding: 40px 46px 40px 0;
+      padding: 40px 0;
     }
   }
 
@@ -53,32 +51,31 @@
     position: relative;
     font: {
       size: 16px;
-      family: $font-accent;
       weight: 600;
     }
-    color: $color-text-heading;
     cursor: pointer;
     transition: .2s;
 
     &.nuxt-link-active {
       color: $color-red;
-
-      &::before {
-        top: -38px;
-      }
     }
+  }
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: -43px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 32px;
-      height: 4px;
-      border-radius: 0px 0px 3px 3px;
-      background-color: $color-red;
-      transition: .2s;
-    }
+  &--sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000099;
+    transform: translateY(-160px);
+    background-color: $color-white;
+    box-shadow: 0px 16px 32px rgba(33, 78, 146, 0.08), 0px 2px 8px rgba(33, 78, 146, 0.1);
+  }
+
+  &--ready {
+    transition: transform .4s;
+  }
+
+  &--visible {
+    transform: translateY(0);
   }
 }

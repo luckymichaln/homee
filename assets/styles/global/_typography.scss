@@ -15,7 +15,6 @@ h4,
 h5,
 h6,
 .heading {
-  font-family: $font-accent;
   color: $color-text-heading;
 }
 
@@ -44,5 +43,13 @@ h6,
 
   &--center {
     text-align: center;
+  }
+
+  &--upper {
+    text-transform: uppercase;
+  }
+
+  &--accent {
+    color: $color-accent;
   }
 }
