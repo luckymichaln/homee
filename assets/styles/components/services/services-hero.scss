@@ -9,23 +9,6 @@
     padding-top: 10vw;
   }
 
-  .services-page--blue & {
-    color: #72bef98c;
-    background: url(~assets/static/images/services/bg_blue.svg) top center no-repeat;
-  }
-  .services-page--green & {
-    color: #75e0be94;
-    background: url(~assets/static/images/services/bg_green.svg) top center no-repeat;
-  }
-  .services-page--red & {
-    color: #FFB2B1;
-    background: url(~assets/static/images/services/bg_red.svg) top center no-repeat;
-  }
-  .services-page--yellow & {
-    color: #FFD4A0;
-    background: url(~assets/static/images/services/bg_yellow.svg) top center no-repeat;
-  }
-
   .services-page--dotnet & {
     &__image {
       width: 100%;

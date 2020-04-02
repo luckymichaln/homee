@@ -40,18 +40,4 @@
       margin-right: 80px;
     }
   }
-
-  &::before {
-    content: url(~assets/static/images/footer/footer_1.svg);
-    position: absolute;
-    right: -20px;
-    bottom: -25px;
-  }
-
-  &::after {
-    content: url(~assets/static/images/footer/footer_2.svg);
-    position: absolute;
-    right: -20px;
-    bottom: -210px;
-  }
 }
