@@ -1,6 +1,6 @@
-# datax
+# Homee
 
-> Data X website
+> Homee website
 
 ## Build Setup
 
