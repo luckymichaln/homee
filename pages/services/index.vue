@@ -8,11 +8,11 @@ import servicesPage from '~/components/page-content/services-page';
 
 export default {
   async fetch ({ store, route }) {
-    await store.dispatch('pages/GET_SINGLE_PAGE_DATA', { pageType: 'service_page', uid: route.params.slug })
+    await store.dispatch('pages/GET_SINGLE_PAGE_DATA', { pageType: 'service_page' })
   },
 
   beforeRouteUpdate (to, from, next) {
-    this.$store.dispatch('pages/GET_SINGLE_PAGE_DATA', { pageType: 'service_page', uid: to.params.slug })
+    this.$store.dispatch('pages/GET_SINGLE_PAGE_DATA', { pageType: 'service_page' })
     next()
   },
 

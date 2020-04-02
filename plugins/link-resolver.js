@@ -15,12 +15,12 @@ export default function (doc) {
     return '/about-us';
   }
 
-  if (doc.type === 'career') {
-    return '/career';
+  if (doc.type === 'contact_page') {
+    return '/contact';
   }
 
   if (doc.type === 'service_page') {
-    return `/services/${doc.uid}`;
+    return `/services`;
   }
 
   return '/not-found';

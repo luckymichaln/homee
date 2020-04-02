@@ -1,5 +1,5 @@
 <template>
-  <div class="career-page">
+  <div class="contact-page">
     {{pageData}}
   </div>
 </template>
