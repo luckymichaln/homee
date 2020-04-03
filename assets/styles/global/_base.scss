@@ -49,6 +49,6 @@ input[type=number]::-webkit-outer-spin-button {
 
   &--wide {
     max-width: $container-wide-width;
-    padding: 0;
+    margin: 0 auto;
   }
 }

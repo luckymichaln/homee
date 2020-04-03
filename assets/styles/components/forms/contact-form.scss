@@ -1,0 +1,35 @@
+.contact-form {
+
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  label {
+    margin-bottom: 10px;
+    font-size: 12px;
+
+    span {
+      color: $color-purple;
+    }
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid $color-gray--superlight;
+    border-radius: 4px;
+
+    &::placeholder {
+      font-size: 13px;
+      color: rgba(#898e99, .6);
+    }
+  }
+
+  textarea {
+    min-height: 140px;
+    resize: none;
+  }
+}

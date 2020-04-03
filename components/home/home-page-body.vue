@@ -29,6 +29,19 @@
         :sliderTitle="section.primary.slider_title"
         :blocks="section.items"
       />
+      <contactHome
+        v-if="section.slice_type === 'contact_form'"
+        :sectionTitle="section.primary.section_title"
+        :addressColTitle="section.primary.address_column_title"
+        :addressText="section.primary.address_column_text"
+        :phoneColTitle="section.primary.phone_column_title"
+        :phoneText="section.primary.phone_column_text"
+        :emailColTitle="section.primary.email_column_title"
+        :emailText="section.primary.email_column_text"
+        :image="{url: section.primary.contact_image.url, alt: section.primary.contact_image.alt}"
+        :formFields="section.items"
+        :formButton="section.primary.button_label"
+      />
     </section>
   </div>
 </template>
@@ -37,6 +50,7 @@
 import serviceHome from '~/components/home/sections/service-home';
 import aboutUsHome from '~/components/home/sections/about-us-home';
 import realizationsHome from '~/components/home/sections/realizations-home';
+import contactHome from '~/components/home/sections/contact-home';
 
 export default {
   props: {
@@ -46,14 +60,11 @@ export default {
     }
   },
 
-  mounted() {
-    console.log(this.data)
-  },
-
   components: {
     serviceHome,
     aboutUsHome,
-    realizationsHome
+    realizationsHome,
+    contactHome
   }
 }
 </script>

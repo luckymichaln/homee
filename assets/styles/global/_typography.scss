@@ -64,7 +64,8 @@ html, body {
   }
 
   b,
-  strong {
+  strong,
+  &--semibold {
     font-weight: 600;
   }
 }

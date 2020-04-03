@@ -57,7 +57,6 @@ export default {
   },
 
   mounted() {
-    console.log(this.blocks, 'blocks')
     this.prepareSildes()
   },
 
@@ -66,8 +65,6 @@ export default {
       this.blocks.map(el => {
         return this.slides.push({ image: el.slide_image, imageRetina: el.slide_image_retina })
       });
-
-      return this.slides;
     }
   },
 
