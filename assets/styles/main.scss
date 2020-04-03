@@ -14,25 +14,15 @@
 
 // Pages
 @import "./pages/home-page";
-@import "./pages/services-page";
 
 // Components
 @import "./components/header/header";
-@import "./components/header/submenu-box";
 @import "./components/footer/footer";
 @import "./components/footer/footer-list";
 @import "./components/button";
 @import "./components/hero/hero-primary";
-@import "./components/services/services-hero";
-@import "./components/services/services-body";
 @import "./components/sliders/tech-slider";
 
 // Sections
-@import "./components/sections/features-list";
-@import "./components/sections/industries-list";
-@import "./components/sections/our-expertise";
-@import "./components/sections/provider";
-@import "./components/sections/projects-home";
-@import "./components/sections/section-with-text";
-@import "./components/sections/cta-section";
-@import "./components/sections/something-else";
+@import "./components/sections/service-home";
+@import "./components/sections/about-us-home";

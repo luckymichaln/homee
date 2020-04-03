@@ -1,6 +1,6 @@
 // Base colors
 $color-white: #FFF;
-$color-white--smoked: #F0F4F8;
+$color-white--smoked: #f5f9fc;
 $color-black: #000;
 $color-red: #F05252;
 $color-red--dark: #CA3132;
@@ -16,9 +16,11 @@ $color-green--superlight: rgba(#75E0BE, .24);
 $color-gray--darkest: #363C51;
 $color-gray--dark: #404966;
 $color-gray--light: #555555;
+$color-purple: #545ef9;
 
 // Layout colors
 $color-accent: #0acee2;
+$color-button: $color-purple;
 
 // Text colors
 $color-text-heading: $color-gray--dark;

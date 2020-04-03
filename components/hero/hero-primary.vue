@@ -7,22 +7,20 @@
             class="hero-heading heading-primary"
             :field="heading"
           />
-          <prismic-rich-text
-            class="hero-text text"
-            :field="text"
-          />
           <div class="hero__actions">
             <x-button
               v-for="(b, i) in buttons"
               :key="i"
+              arrow
               :button="b"
             />
           </div>
         </div>
         <div class="hero__image">
           <img
-            :src="imageUrl"
-            :alt="imageAlt"
+            :src="image.url"
+            :srcset="`${image.url} 1x, ${image.retinaUrl} 2x`"
+            :alt="image.alt"
           />
         </div>
       </div>
@@ -35,10 +33,8 @@ import xButton from '~/components/x-button';
 
 export default {
   props: {
-    imageUrl: String,
-    imageAlt: String,
+    image: Object,
     heading: [Object, Array],
-    text: [Object, Array],
     buttons: {
       type: Array,
       default: () => []

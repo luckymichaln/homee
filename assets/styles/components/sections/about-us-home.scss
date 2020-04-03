@@ -1,0 +1,32 @@
+.about-us-home {
+  margin-bottom: 215px;
+
+  &__inner {
+    display: flex;
+
+    .col-info {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 380px;
+      padding-top: 60px;
+      margin-left: 68px;
+
+      &__text {
+        margin: 30px 0 40px;
+
+        p:not(:last-child) {
+          margin-bottom: 30px;
+        }
+      }
+
+      &::before {
+        content: url(~assets/static/images/cloud.svg);
+        position: absolute;
+        top: 0;
+        right: -60px;
+      }
+    }
+  }
+}

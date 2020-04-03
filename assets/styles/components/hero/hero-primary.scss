@@ -1,36 +1,40 @@
 .hero {
+  &-primary {
+    margin-bottom: 100px;
+  }
+
   &__wrapper {
     display: flex;
   }
 
   &__text {
     width: 100%;
-    max-width: 553px;
     margin-right: 50px;
+    max-width: 530px;
 
-    .hero-text {
-      max-width: 464px;
-      margin: 16px 0 40px;
+    .hero-heading h1:first-child {
+      max-width: 350px;
     }
   }
 
   &__actions {
+    margin-top: 60px;
+
     .button-wrapper:not(:first-child) {
       margin-left: 6px;
     }
   }
 
   &__image {
-    margin-right: -82px;
-  }
-
-  &-primary {
-    padding-top: 90px;
-    margin-bottom: 100px;
+    position: relative;
+    top: -150px;
+    right: -12px;
+    width: 63%;
+    margin-right: -250px;
   }
 
   &-heading {
-    padding-top: 50px;
+    padding-top: 75px;
   }
 
 }

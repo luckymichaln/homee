@@ -8,20 +8,10 @@ html, body {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.heading {
-  color: $color-text-heading;
-}
-
 .heading-primary {
-  font-size: 64px;
-  font-weight: 900;
-  line-height: 83px;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 44px;
 }
 
 .heading-secondary {
@@ -37,8 +27,8 @@ h6,
 }
 
 .text {
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 20px;
   color: $color-text;
 
   &--center {
@@ -49,7 +39,21 @@ h6,
     text-transform: uppercase;
   }
 
+  &--pale {
+    opacity: .6;
+  }
+
   &--accent {
     color: $color-accent;
+  }
+
+  &--title {
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 1.54px;
+  }
+
+  &--bold {
+    font-weight: 800;
   }
 }
