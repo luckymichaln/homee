@@ -23,6 +23,12 @@
           button_url: section.primary.block_button_link,
         }"
       />
+      <realizationsHome
+        v-if="section.slice_type === 'realizations'"
+        :title="section.primary.section_title"
+        :sliderTitle="section.primary.slider_title"
+        :textBlocks="section.items"
+      />
     </section>
   </div>
 </template>
@@ -30,6 +36,7 @@
 <script>
 import serviceHome from '~/components/home/sections/service-home';
 import aboutUsHome from '~/components/home/sections/about-us-home';
+import realizationsHome from '~/components/home/sections/realizations-home';
 
 export default {
   props: {
@@ -45,7 +52,8 @@ export default {
 
   components: {
     serviceHome,
-    aboutUsHome
+    aboutUsHome,
+    realizationsHome
   }
 }
 </script>

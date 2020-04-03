@@ -1,0 +1,55 @@
+.realizations-home {
+  border-radius: 100px;
+  padding: 80px 150px 100px;
+  background-color: $color-white;
+  box-shadow: 0 17px 74px -20px rgba(113, 113, 113, 0.19);
+
+  &-title {
+    margin-bottom: 40px;
+  }
+
+  &__inner {
+    display: flex;
+
+    .col-images {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .col-info {
+      max-width: 650px;
+      margin-left: 87px;
+
+      ul {
+        margin-bottom: 30px;
+      }
+
+      li {
+        position: relative;
+
+        &::before {
+          content: '-';
+          margin-right: 5px;
+          color: $color-accent;
+        }
+      }
+
+      &__block:not(:last-child) {
+        margin-bottom: 80px;
+      }
+    }
+  }
+
+  .heading--small {
+    margin-bottom: 18px;
+  }
+
+  .text-semiheading {
+    margin-bottom: 35px;
+    opacity: .7;
+  }
+
+  .text--medium {
+    opacity: .7;
+  }
+}
