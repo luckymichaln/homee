@@ -27,7 +27,7 @@
         v-if="section.slice_type === 'realizations'"
         :title="section.primary.section_title"
         :sliderTitle="section.primary.slider_title"
-        :textBlocks="section.items"
+        :blocks="section.items"
       />
     </section>
   </div>

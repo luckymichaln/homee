@@ -7,10 +7,13 @@
           :field="sliderTitle"
           class="heading--big"
         />
+        <slider
+          :slides="slides"
+        />
       </div>
       <div class="col col-info">
         <div class="col-info__block"
-          v-for="(block, index) in textBlocks"
+          v-for="(block, index) in blocks"
           :key="index"
         >
           <prismic-rich-text
@@ -32,6 +35,8 @@
 </template>
 
 <script>
+import slider from '~/components/sliders/slider';
+
 export default {
   props: {
     title: String,
@@ -39,10 +44,35 @@ export default {
       type: Array,
       default: () => []
     },
-    textBlocks: {
+    blocks: {
       type: Array,
       default: () => []
     }
+  },
+
+  data() {
+    return {
+      slides: []
+    }
+  },
+
+  mounted() {
+    console.log(this.blocks, 'blocks')
+    this.prepareSildes()
+  },
+
+  methods: {
+    prepareSildes() {
+      this.blocks.map(el => {
+        return this.slides.push({ image: el.slide_image, imageRetina: el.slide_image_retina })
+      });
+
+      return this.slides;
+    }
+  },
+
+  components: {
+    slider
   }
 }
 </script>

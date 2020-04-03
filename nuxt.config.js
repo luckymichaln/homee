@@ -50,6 +50,7 @@ export default {
     '~/plugins/link-resolver.js',
     '~/plugins/html-serializer.js',
     '~/plugins/prismic-vue.js',
+    './plugins/vue-awesome-swiper.js',
   ],
 
   /*
