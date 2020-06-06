@@ -1,12 +1,12 @@
 <template>
   <div class="page page--rental">
-    Rental
+    <rentalPage :pageData="rentalPageData" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-
+import rentalPage from '~/components/page-content/rental-page';
 
 export default {
   async fetch ({ store }) {
@@ -24,7 +24,7 @@ export default {
   },
 
   components: {
-
+    rentalPage
   }
 }
 </script>

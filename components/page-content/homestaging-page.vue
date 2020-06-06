@@ -1,6 +1,6 @@
 <template>
-  <div class="project-page">
-    {{pageData}}
+  <div class="homestaging-page">
+    {{ pageData }}
   </div>
 </template>
 
@@ -11,10 +11,6 @@ export default {
       type: Object,
       default: () => {},
     }
-  },
+  }
 }
 </script>
-
-<style>
-
-</style>

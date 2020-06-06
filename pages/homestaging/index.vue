@@ -1,12 +1,12 @@
 <template>
   <div class="page page--homestaging">
-    Homestaging
+    <homestagingPage :pageData="homestagingPageData" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-
+import homestagingPage from '~/components/page-content/homestaging-page';
 
 export default {
   async fetch ({ store }) {
@@ -24,7 +24,7 @@ export default {
   },
 
   components: {
-
+    homestagingPage
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-page">
+  <div class="rental-page">
     {{pageData}}
   </div>
 </template>
@@ -14,7 +14,3 @@ export default {
   },
 }
 </script>
-
-<style>
-
-</style>
