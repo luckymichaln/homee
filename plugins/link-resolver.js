@@ -7,12 +7,12 @@ export default function (doc) {
     return '/';
   }
 
-  if (doc.type === 'projects_page') {
-    return '/projects';
+  if (doc.type === 'homestaging') {
+    return '/homestaging';
   }
 
-  if (doc.type === 'about_us') {
-    return '/about-us';
+  if (doc.type === 'rental_management') {
+    return '/rental';
   }
 
   if (doc.type === 'contact_page') {

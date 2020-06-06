@@ -30,7 +30,28 @@ const mutations = {
   }
 }
 
+const getters = {
+  headerLinks: state => {
+    if (!state.headerData) {
+      return null;
+    }
+
+    const { body } = state.headerData;
+
+    return body.map(el => {
+      const { primary } = el;
+      const { link_url, link_label } = primary;
+      const { url } = link_url;
+
+      return {
+        label: link_label,
+        url: `#${url.split('#')[1]}`
+      }
+    });
+  }
+}
+
 export default {
   namespaced: true,
-  mutations, state, actions
+  mutations, state, actions, getters
 }

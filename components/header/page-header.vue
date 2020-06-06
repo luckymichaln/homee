@@ -7,7 +7,7 @@
       >
         <img :src="headerData.logo.url" alt="DataX" />
       </nuxt-link>
-      <pageHeaderNav :navList="headerData.body" />
+      <pageHeaderNav :navList="headerLinks" />
     </div>
   </header>
 </template>
@@ -20,6 +20,10 @@ export default {
     headerData: {
       type: Object,
       default: () => {},
+    },
+    headerLinks: {
+      type: Array,
+      default: () => [],
     }
   },
 

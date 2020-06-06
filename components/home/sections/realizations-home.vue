@@ -1,5 +1,5 @@
 <template>
-  <section class="realizations-home container--wide">
+  <section class="realizations-home container--wide" id="projects">
     <h3 class="realizations-home-title text text--upper text--bold text--accent">{{ title }}</h3>
     <div class="realizations-home__inner">
       <div class="col col-images">

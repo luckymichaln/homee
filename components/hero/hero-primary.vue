@@ -8,12 +8,14 @@
             :field="heading"
           />
           <div class="hero__actions">
-            <x-button
-              v-for="(b, i) in buttons"
-              :key="i"
-              arrow
-              :button="b"
-            />
+            <div class="button-wrapper">
+              <a
+                href="#about"
+                class="button button--arrow"
+              >
+                Dowiedz się więcej
+              </a>
+            </div>
           </div>
         </div>
         <div class="hero__image">
@@ -29,8 +31,6 @@
 </template>
 
 <script>
-import xButton from '~/components/x-button';
-
 export default {
   props: {
     image: Object,
@@ -39,10 +39,6 @@ export default {
       type: Array,
       default: () => []
     }
-  },
-
-  components: {
-    xButton
   }
 }
 </script>

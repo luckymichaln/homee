@@ -3,6 +3,8 @@ import apiConfig from './api';
 const state = () => ({
   pageData: {
     hero_home: null,
+    rental_management: null,
+    homestaging: null
   }
 })
 
@@ -34,6 +36,8 @@ const mutations = {
 
 const getters = {
   homePageData: state => state.pageData.hero_home ? state.pageData.hero_home : null,
+  rentalPageData: state => state.pageData.rental_management ? state.pageData.rental_management : null,
+  homestagingPageData: state => state.pageData.homestaging ? state.pageData.homestaging : null,
 }
 
 export default {

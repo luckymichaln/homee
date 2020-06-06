@@ -3,6 +3,7 @@
     <pageHeader
       v-if="headerData"
       :headerData="headerData"
+      :headerLinks="headerLinks"
     />
     <transition name="fade">
       <nuxt />
@@ -15,7 +16,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 import pageHeader from '../components/header/page-header';
 import pageFooter from '../components/footer/page-footer';
 
@@ -23,6 +24,7 @@ export default {
   computed: {
     ...mapState('header', ['headerData']),
     ...mapState('footer', ['footerData']),
+    ...mapGetters('header', ['headerLinks'])
   },
 
   data() {
@@ -34,6 +36,7 @@ export default {
   },
 
   mounted() {
+    console.log(this.headerData, 'headerLinks')
     document.addEventListener('scroll', this.stickyNav);
   },
 

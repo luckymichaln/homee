@@ -6,12 +6,12 @@
         :key="i"
         class="nav-el"
       >
-        <prismic-link
-          :field="navEl.primary.link_url"
+        <a
+          :href="navEl.url"
           class="nav-el__link"
         >
-          <span class="link-text text--accent text--upper">{{ navEl.primary.link_label }}</span>
-        </prismic-link>
+          <span class="link-text text--accent text--upper">{{ navEl.label }}</span>
+        </a>
       </li>
     </ul>
   </nav>

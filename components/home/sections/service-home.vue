@@ -1,5 +1,5 @@
 <template>
-  <section class="service-home">
+  <section class="service-home" id="services">
     <div class="service-home__inner">
       <prismic-rich-text
         :field="title"

@@ -8,14 +8,14 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'Homee - Profesjonalna obsługa Twojej nieruchomości',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: 'Zarządzanie najmem z gwarancją czynszu i Homestaging - przygotowanie mieszkania do sprzedaży i wynajmu' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon@2x.png' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;800&display=swap' }
     ],
     script: [
