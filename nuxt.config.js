@@ -28,7 +28,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#F05252' },
+  loading: { color: '#0acee2' },
 
   /*
   ** Global CSS
@@ -61,6 +61,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/prismic',
+    'vue-scrollto/nuxt',
   ],
   /*
   ** Axios module configuration

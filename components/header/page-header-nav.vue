@@ -7,7 +7,11 @@
         class="nav-el"
       >
         <a
-          :href="navEl.url"
+          href="#"
+          v-scroll-to="{
+            el: `${navEl.url}`,
+            offset: -80
+          }"
           class="nav-el__link"
         >
           <span class="link-text text--accent text--upper">{{ navEl.label }}</span>
@@ -44,7 +48,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

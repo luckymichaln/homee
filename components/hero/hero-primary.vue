@@ -10,10 +10,14 @@
           <div class="hero__actions">
             <div class="button-wrapper">
               <a
-                href="#about"
+                href="#"
+                v-scroll-to="{
+                  el: '#about',
+                  offset: -80
+                }"
                 class="button button--arrow"
               >
-                Dowiedz się więcej
+                {{ buttons[0].button_label }}
               </a>
             </div>
           </div>
@@ -42,7 +46,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

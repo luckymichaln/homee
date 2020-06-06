@@ -15,13 +15,17 @@
             :field="text"
             class="text text--pale col-info__text"
           />
-          <xButton
-            arrow
-            :button="{
-              button_label: button.button_label,
-              button_url: button.button_url
-            }"
-          />
+          <div class="button-wrapper">
+            <a
+              v-scroll-to="{
+                el: '#contact',
+                offset: -80
+              }"
+              class="button button--arrow"
+            >
+              {{ button.button_label }}
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -29,8 +33,6 @@
 </template>
 
 <script>
-import xButton from '~/components/x-button';
-
 export default {
   props: {
     data: {
@@ -50,10 +52,6 @@ export default {
       type: Object,
       default: () => {}
     }
-  },
-
-  components: {
-    xButton
   }
 }
 </script>
