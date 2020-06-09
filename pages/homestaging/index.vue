@@ -19,10 +19,6 @@ export default {
     ...mapGetters('pages', ['homestagingPageData']),
   },
 
-  mounted() {
-    console.log(this.homestagingPageData, 'homestagingPageData')
-  },
-
   components: {
     homestagingPage
   }
