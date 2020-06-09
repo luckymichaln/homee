@@ -43,6 +43,10 @@ html, body {
 
   &--upper {
     text-transform: uppercase;
+
+    &-light {
+      opacity: .8;
+    }
   }
 
   &--pale {
@@ -68,4 +72,8 @@ html, body {
   &--semibold {
     font-weight: 600;
   }
+}
+
+h2 {
+  @extend .heading--small;
 }

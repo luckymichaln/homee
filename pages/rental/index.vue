@@ -19,10 +19,6 @@ export default {
     ...mapGetters('pages', ['rentalPageData']),
   },
 
-  mounted() {
-    console.log(this.rentalPageData, 'rentalPageData')
-  },
-
   components: {
     rentalPage
   }
