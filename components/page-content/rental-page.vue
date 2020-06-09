@@ -1,7 +1,7 @@
 <template>
   <div class="rental-page">
     <div class="container">
-      <section class="rental-page__hero">
+      <section class="rental-page__hero subpage-hero">
         <div class="hero-col">
           <img
             class="hero-image"

@@ -1,0 +1,27 @@
+.homestaging-page {
+    &__hero {
+        margin-bottom: 240px;
+
+        .heading-text {
+            max-width: 530px;
+
+            h2 {
+                @extend .text--upper;
+                @extend .text--upper-light;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    .hero-col {
+        .heading--big {
+            margin-bottom: 40px;
+        }
+
+        p {
+            @extend .text--small;
+            margin-bottom: 40px;
+            opacity: .6;
+        }
+    }
+}

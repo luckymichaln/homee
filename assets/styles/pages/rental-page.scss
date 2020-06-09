@@ -1,27 +1,4 @@
 .rental-page {
-    &__hero {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-        padding-top: 50px;
-    }
-
-    .hero-col {
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-    }
-
-    .hero-heading {
-        max-width: 450px;
-        margin-bottom: 50px;
-    }
-
-    .hero-image {
-        height: 100%;
-        padding: 20px 0 0 0;
-    }
-
     &__cols {
         margin: 120px 0 240px;
         display: flex;

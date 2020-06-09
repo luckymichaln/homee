@@ -1,6 +1,11 @@
 <template>
-  <section class="realizations-home container--wide" id="projects">
-    <h3 class="realizations-home-title text text--upper text--bold text--accent">{{ title }}</h3>
+  <section :class="containerClass()" :id="card ? 'projects' : null">
+    <h3
+      v-if="title"
+      class="realizations-home-title text text--upper text--bold text--accent"
+    >
+      {{ title }}
+    </h3>
     <div class="realizations-home__inner">
       <div class="col col-images">
         <prismic-rich-text
@@ -47,7 +52,8 @@ export default {
     blocks: {
       type: Array,
       default: () => []
-    }
+    },
+    card: Boolean
   },
 
   data() {
@@ -65,6 +71,14 @@ export default {
       this.blocks.map(el => {
         return this.slides.push({ image: el.slide_image, imageRetina: el.slide_image_retina })
       });
+    },
+
+    containerClass() {
+      return {
+        'realizations-home': true,
+        'realizations-home--card': this.card,
+        'container--wide': true
+      }
     }
   },
 

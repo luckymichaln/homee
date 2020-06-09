@@ -25,6 +25,7 @@
       />
       <realizationsHome
         v-if="section.slice_type === 'realizations'"
+        card
         :title="section.primary.section_title"
         :sliderTitle="section.primary.slider_title"
         :blocks="section.items"
