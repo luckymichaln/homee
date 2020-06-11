@@ -8,7 +8,7 @@ import blogPage from '~/components/page-content/blog-page';
 
 export default {
   async fetch ({ store }) {
-    if (!store.getters['blog/posts']) {
+    if (!store.getters['blog/posts'].length) {
       await store.dispatch('blog/GET_ALL_POSTS')
     }
   },
@@ -18,7 +18,7 @@ export default {
   },
 
   mounted () {
-    console.log({posts: this.posts})
+    console.log(this.posts, '/blog')
   },
 
   components: {

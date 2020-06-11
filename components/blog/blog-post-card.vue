@@ -16,7 +16,7 @@
       </div>
     </header>
     <nuxt-link
-      :to="`blog/${post.slugs[0]}`"
+      :to="`blog/${post.uid}`"
     >
       <div class="card-image">
         <img :src="post.data.post_hero_image.url" :alt="post.data.post_hero_image.alt" />

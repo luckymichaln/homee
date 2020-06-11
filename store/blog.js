@@ -2,7 +2,8 @@ import apiConfig from './api';
 import Prismic from 'prismic-javascript';
 
 const state = () => ({
-  posts: null
+  posts: [],
+  singlePost: null
 })
 
 const actions = {
@@ -24,23 +25,40 @@ const actions = {
     } catch (err) {
       console.error(err)
     }
+  },
+
+  async GET_SINGLE_POST({ commit, state }, { uid }) {
+    try {
+      const api = await apiConfig()
+      let doc = null;
+      const result = await api.getByUID('blog_post', uid);
+      doc = result;
+
+      if (result) {
+        commit('SET_SINGLE_POST', { data: doc });
+      }
+
+      console.log({ GET_SINGLE_POST: doc })
+      return result;
+    } catch (err) {
+      console.error(err)
+    }
   }
 }
 
 const mutations = {
   SET_ALL_POSTS(state, { data }) {
     state.posts = data
-  }
+  },
+
+  SET_SINGLE_POST(state, { data }) {
+    state.singlePost = data
+  },
 }
 
 const getters = {
-  posts: state => {
-    if (!state.posts) {
-      return null;
-    }
-
-    return state.posts;
-  }
+  posts: state => state.posts || null,
+  singlePost: state => state.singlePost || null
 }
 
 export default {
