@@ -23,13 +23,13 @@
       </div>
       <div class="card-desc">
         <span class="text">{{ postShortText }}</span>
-        <prismic-rich-text
-          ref="postText"
-          :field="post.data.post_text"
-          class="text"
-        />
       </div>
     </nuxt-link>
+    <prismic-rich-text
+      ref="postText"
+      :field="post.data.post_text"
+      class="text"
+    />
   </div>
 </template>
 
