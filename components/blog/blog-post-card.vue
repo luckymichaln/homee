@@ -25,11 +25,11 @@
         <span class="text">{{ postShortText }}</span>
       </div>
     </nuxt-link>
-    <prismic-rich-text
+    <!-- <prismic-rich-text
       ref="postText"
       :field="post.data.post_text"
       class="text"
-    />
+    /> -->
   </div>
 </template>
 
@@ -58,8 +58,9 @@ export default {
   },
 
   mounted () {
-    this.postShortText = this.stringChop(this.$refs.postText.innerText, 350)[0] + '...';
-    this.$refs.postText.remove();
+    this.postShortText = this.stringChop(this.post.data.post_text[0].text, 350)[0] + '...';
+    // this.$refs.postText.remove();
+    console.log(this.post, 'postssasa')
   }
 }
 </script>
