@@ -25,6 +25,12 @@ export default {
     __dangerouslyDisableSanitizers: ['script'],
   },
 
+  router: {
+    scrollBehavior: (to, from, savedPosition) => {
+      return { x: 0, y: 0 }
+    }
+  },
+
   /*
   ** Customize the progress-bar color
   */
@@ -69,6 +75,13 @@ export default {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
+
+   buildModules: [
+    '@nuxtjs/moment'
+   ],
+   moment: {
+     locales: ['pl']
+   },
 
   /*
   ** Build configuration

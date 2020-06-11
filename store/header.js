@@ -42,10 +42,11 @@ const getters = {
       const { primary } = el;
       const { link_url, link_label } = primary;
       const { url } = link_url;
+      console.log(el)
 
       return {
         label: link_label,
-        url: `#${url.split('#')[1]}`
+        url: link_url.slug !== 'blog' ? `#${url.split('#')[1]}` : '/blog'
       }
     });
   }

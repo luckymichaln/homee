@@ -7,6 +7,7 @@
         class="nav-el"
       >
         <a
+          v-if="navEl.url !== '/blog'"
           href="#"
           v-scroll-to="{
             el: `${navEl.url}`,
@@ -16,6 +17,13 @@
         >
           <span class="link-text text--accent text--upper">{{ navEl.label }}</span>
         </a>
+        <nuxt-link
+          v-else
+          class="nav-el__link"
+          :to="{ name: 'blog' }"
+        >
+          <span class="link-text text--accent text--upper">{{ navEl.label }}</span>
+        </nuxt-link>
       </li>
     </ul>
   </nav>
@@ -45,6 +53,10 @@ export default {
         'nav-el__link': true
       }
     }
+  },
+
+  mounted () {
+    console.log(this.navList, 'lslls')
   }
 }
 </script>
