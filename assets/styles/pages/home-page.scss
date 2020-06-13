@@ -11,4 +11,56 @@
       margin: 0 auto;
     }
   }
+
+  .hero .hero__wrapper {
+    position: relative;
+
+    &::after {
+      content: url(~assets/static/stripes/stripes-hp-1.svg);
+      position: absolute;
+      z-index: -1;
+      bottom: -120px;
+      left: 42%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .service-home {
+    position: relative;
+
+    &::after {
+      content: url(~assets/static/stripes/stripes-hp-2.svg);
+      position: absolute;
+      z-index: -1;
+      bottom: -91%;
+      left: 52%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .about-us-home__inner {
+    position: relative;
+
+    &::after {
+      content: url(~assets/static/stripes/stripes-hp-3.svg);
+      position: absolute;
+      z-index: -1;
+      bottom: -39%;
+      left: 42%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .realizations-home {
+    position: relative;
+
+    &::after {
+      content: url(~assets/static/stripes/stripes-hp-4.svg);
+      position: absolute;
+      z-index: -1;
+      bottom: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
 }
