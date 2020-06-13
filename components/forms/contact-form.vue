@@ -18,6 +18,7 @@
 
         <ValidationProvider
           v-if="field.field_type.toLowerCase() === 'text'"
+          mode="passive"
           :rules="`${field.field_required}` ? 'required' : null"
           v-slot="{ errors, classes }"
         >
@@ -33,6 +34,7 @@
 
         <ValidationProvider
           v-if="field.field_type.toLowerCase() === 'number'"
+          mode="passive"
           rules="integer|required"
           v-slot="{ errors, classes }"
         >
@@ -48,6 +50,7 @@
 
         <ValidationProvider
           v-if="field.field_type.toLowerCase() === 'email'"
+          mode="passive"
           rules="required|email"
           v-slot="{ errors, classes }"
         >
