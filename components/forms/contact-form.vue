@@ -133,8 +133,8 @@ export default {
             console.log(response)
 
             let token = null;
-            if (response.token) {
-              token = response.token;
+            if (response.data.token) {
+              token = response.data.token;
 
               this.$axios({
                 method: 'post',
@@ -150,7 +150,7 @@ export default {
               }).then(response => {
                 console.log(response);
 
-                if (response.ok) {
+                if (response.data.ok) {
                   this.loading = false;
                   this.messageSent = true;
                 }
