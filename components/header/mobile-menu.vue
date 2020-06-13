@@ -1,0 +1,109 @@
+<template>
+  <aside class="aside-nav">
+    <ul class="nav-list">
+      <li
+        v-for="(navEl, i) in navList"
+        :key="i"
+        class="nav-el"
+      >
+        <prismic-link
+          v-if="!navEl.items.length"
+          :field="navEl.primary.link_url"
+          class="nav-el__link"
+          @click.native="openMobileMenu(false)"
+        >
+          <span class="link-text">{{ navEl.primary.link_label }}</span>
+        </prismic-link>
+        <div
+          v-else
+          class="nav-el__submenu"
+          @mouseenter="openSubmenu(true)"
+          @mouseleave="openSubmenu(false)"
+        >
+          <span :class="submenuSpanClass(true)">{{ navEl.primary.link_label }}</span>
+          <transition name="submenu">
+            <div
+              v-if="submenuShouldOpen"
+              class="submenu-box"
+            >
+              <prismic-link
+                v-for="e in navEl.items"
+                :key="e.menu_link_url.id"
+                :field="e.menu_link_url"
+                :class="submenuLinkClass(e)"
+                @click.native="openMobileMenu(false)"
+              >
+                {{ e.menu_link_label }}
+              </prismic-link>
+            </div>
+          </transition>
+        </div>
+      </li>
+    </ul>
+    <button
+      class="button button--red button--bordered"
+      @click="openMobileMenu(false)"
+    >
+      Close
+    </button>
+  </aside>
+</template>
+
+<script>
+export default {
+  props: {
+    navList: {
+      type: Array,
+      default: () => []
+    }
+  },
+
+  data () {
+    return {
+      submenuShouldOpen: false,
+    }
+  },
+
+  mounted() {
+    document.getElementsByClassName('page-header')[0].classList.remove('page-header--visible');
+    setTimeout(() => {
+      document.getElementsByTagName('html')[0].classList.add('frozen');
+      document.getElementsByTagName('body')[0].classList.add('frozen');
+      document.getElementById('__nuxt').classList.add('frozen');
+      document.getElementById('__layout').classList.add('frozen');
+    }, 300);
+  },
+
+  methods: {
+    submenuLinkClass(el) {
+      return {
+        'nav-el__link': true,
+      }
+    },
+    submenuSpanClass(submenu) {
+      return {
+        'link-text': true,
+        'link-text--submenu': submenu,
+        'link-text--submenu-opened': this.submenuShouldOpen,
+      }
+    },
+    openSubmenu(shouldOpen) {
+      this.submenuShouldOpen = shouldOpen;
+    },
+    openMobileMenu(open) {
+      this.$store.commit('ui/SET_MOBILE_MENU_OPEN', { mobileMenuOpened: open });
+    }
+  },
+
+  beforeDestroy() {
+    document.getElementsByTagName('html')[0].classList.remove('frozen');
+    document.getElementsByTagName('body')[0].classList.remove('frozen');
+    document.getElementById('__nuxt').classList.remove('frozen');
+    document.getElementById('__layout').classList.remove('frozen');
+  }
+}
+</script>
+
+<style>
+
+</style>

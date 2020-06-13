@@ -6,6 +6,7 @@ import header from './header';
 import footer from './footer';
 import pages from './pages';
 import blog from './blog';
+import ui from './ui';
 
 Vue.use(Vuex)
 
@@ -15,16 +16,11 @@ const createStore = () => {
     footer,
     pages,
     blog,
+    ui
   }
 
   return new Vuex.Store({
     modules,
-    actions: {
-      async nuxtServerInit({ dispatch }, { req }) {
-        await dispatch('header/GET_HEADER_DATA');
-        await dispatch('footer/GET_FOOTER_DATA');
-      }
-    }
   })
 }
 

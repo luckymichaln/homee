@@ -42,7 +42,6 @@ const getters = {
       const { primary } = el;
       const { link_url, link_label } = primary;
       const { url } = link_url;
-      console.log(el)
 
       return {
         label: link_label,

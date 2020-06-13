@@ -1,8 +1,5 @@
-import pkg from './package';
-const PrismicConfig = require('./prismic.config');
-
 export default {
-  mode: 'universal',
+  mode: 'spa',
 
   /*
   ** Headers of the page
@@ -56,7 +53,8 @@ export default {
     '~/plugins/link-resolver.js',
     '~/plugins/html-serializer.js',
     '~/plugins/prismic-vue.js',
-    './plugins/vue-awesome-swiper.js',
+    '~/plugins/vue-awesome-swiper.js',
+    '~/plugins/vee-validate.js',
   ],
 
   /*

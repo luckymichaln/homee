@@ -1,40 +1,95 @@
 <template>
-  <form class="contact-form">
-    <fieldset
-      v-for="(field, index) in fields"
-      :key="index"
+  <ValidationObserver ref="form">
+    <form
+      @submit.prevent="ev => sendForm(ev)"
+      class="contact-form"
     >
-      <label
-        :for="`${field.field_type.toLowerCase()}--${index}`"
-        class="text--upper text--semibold"
+      <fieldset
+        v-for="(field, index) in fields"
+        :key="index"
       >
-        {{ field.field_label }}
-        <span v-if="field.field_required">*</span>
-      </label>
-      <input
-        v-if="field.field_type.toLowerCase() !== 'textarea'"
-        :id="`${field.field_type.toLowerCase()}--${index}`"
-        :placeholder="field.field_placeholder"
-        :required="field.field_required"
-      />
-      <textarea
-        v-else
-        :placeholder="field.field_placeholder"
-        :id="`${field.field_type.toLowerCase()}--${index}`"
-        :required="field.field_required"
+        <label
+          :for="`${field.field_type.toLowerCase()}`"
+          class="text--upper text--semibold"
+        >
+          {{ field.field_label }}
+          <span v-if="field.field_required">*</span>
+        </label>
+
+        <ValidationProvider
+          v-if="field.field_type.toLowerCase() === 'text'"
+          :rules="`${field.field_required}` ? 'required' : null"
+          v-slot="{ errors, classes }"
+        >
+        <div class="field" :class="classes">
+          <input
+            :id="`${field.field_type.toLowerCase()}`"
+            :placeholder="field.field_placeholder"
+            v-model="form[field.field_type.toLowerCase()]"
+          />
+          <span>{{ errors[0] }}</span>
+        </div>
+        </ValidationProvider>
+
+        <ValidationProvider
+          v-if="field.field_type.toLowerCase() === 'number'"
+          rules="integer|required"
+          v-slot="{ errors, classes }"
+        >
+          <div class="field" :class="classes">
+            <input
+              :id="`${field.field_type.toLowerCase()}`"
+              :placeholder="field.field_placeholder"
+              v-model="form[field.field_type.toLowerCase()]"
+            />
+            <span>{{ errors[0] }}</span>
+          </div>
+        </ValidationProvider>
+
+        <ValidationProvider
+          v-if="field.field_type.toLowerCase() === 'email'"
+          rules="required|email"
+          v-slot="{ errors, classes }"
+        >
+          <div class="field" :class="classes">
+            <input
+              :id="`${field.field_type.toLowerCase()}`"
+              :placeholder="field.field_placeholder"
+              v-model="form[field.field_type.toLowerCase()]"
+            />
+            <span>{{ errors[0] }}</span>
+          </div>
+        </ValidationProvider>
+
+        <textarea
+          v-if="field.field_type.toLowerCase() === 'textarea'"
+          :placeholder="field.field_placeholder"
+          :id="`${field.field_type.toLowerCase()}`"
+          :required="field.field_required"
+          v-model="form.message"
+        >
+        </textarea>
+      </fieldset>
+      <button
+        v-if="!messageSent"
+        class="button"
       >
-      </textarea>
-    </fieldset>
-    <button
-      class="button"
-    >
-      {{ buttonLabel }}
-    </button>
-  </form>
+        {{ loading ? 'Wysyłanie...' : buttonLabel }}
+      </button>
+      <span
+        v-if="messageSent"
+        class="form-confirm"
+      >
+        Wiadomość została wysłana, dziękujemy!
+      </span>
+    </form>
+  </ValidationObserver>
 </template>
 
 <script>
 import xButton from '~/components/x-button';
+import axios from '@nuxtjs/axios';
+import { ValidationProvider, ValidationObserver } from 'vee-validate';
 
 export default {
   props: {
@@ -45,8 +100,82 @@ export default {
     buttonLabel: String
   },
 
+  data() {
+    return {
+      form: {
+        text: null,
+        email: null,
+        number: null,
+        message: null
+      },
+      loading: false,
+      messageSent: false
+    }
+  },
+
+  methods: {
+    sendForm(ev) {
+      ev.preventDefault;
+
+      this.$refs.form.validate().then(success => {
+        if (!success) {
+          return;
+        }
+
+        this.loading = true;
+
+        this.$axios({
+          method: 'post',
+          url: 'http://homeewaw.pl/send/',
+          data: { "action": "auth" },
+        })
+          .then(response => {
+            console.log(response)
+
+            let token = null;
+            if (response.token) {
+              token = response.token;
+
+              this.$axios({
+                method: 'post',
+                url: 'http://homeewaw.pl/send/',
+                data: {
+                  "action": "send",
+                  "token": "IXNkYXNiTWtscG9pdS4xNTkyMDcxMjgx",
+                  "text": "This is my Text",
+                  "number": "This is my Number",
+                  "email": "jan.kowalski@email.com",
+                  "message": "Lorem ipsum dolor sit amet"
+                },
+              }).then(response => {
+                console.log(response);
+
+                if (response.ok) {
+                  this.loading = false;
+                  this.messageSent = true;
+                }
+              }).catch(error => {
+                console.error(error)
+
+                this.loading = false;
+              })
+            }
+          })
+          .catch(error => {
+            console.error(error)
+
+            this.loading = false;
+          })
+
+        console.log(this.form)
+      });
+    }
+  },
+
   components: {
-    xButton
+    xButton,
+    ValidationProvider,
+    ValidationObserver
   }
 }
 </script>

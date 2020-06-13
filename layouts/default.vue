@@ -12,6 +12,12 @@
       v-if="footerData"
       :footerData="footerData"
     />
+    <transition name="fade" mode="out-in">
+      <mobileMenu
+        v-if="headerData && mobileMenuOpened"
+        :navList="headerData.body"
+      />
+    </transition>
   </div>
 </template>
 
@@ -19,12 +25,12 @@
 import { mapState, mapGetters } from 'vuex';
 import pageHeader from '../components/header/page-header';
 import pageFooter from '../components/footer/page-footer';
+import mobileMenu from '~/components/header/mobile-menu';
 
 export default {
-  computed: {
-    ...mapState('header', ['headerData']),
-    ...mapState('footer', ['footerData']),
-    ...mapGetters('header', ['headerLinks'])
+   async created () {
+    await this.$store.dispatch('header/GET_HEADER_DATA');
+    await this.$store.dispatch('footer/GET_FOOTER_DATA');
   },
 
   data() {
@@ -35,8 +41,14 @@ export default {
     }
   },
 
+  computed: {
+    ...mapState('ui', ['mobileMenuOpened']),
+    ...mapState('header', ['headerData']),
+    ...mapState('footer', ['footerData']),
+    ...mapGetters('header', ['headerLinks']),
+  },
+
   mounted() {
-    console.log(this.headerData, 'headerLinks')
     document.addEventListener('scroll', this.stickyNav);
   },
 
@@ -74,7 +86,8 @@ export default {
 
   components: {
     pageHeader,
-    pageFooter
+    pageFooter,
+    mobileMenu
   }
 }
 </script>
