@@ -142,10 +142,10 @@ export default {
                 data: {
                   "action": "send",
                   "token": "IXNkYXNiTWtscG9pdS4xNTkyMDcxMjgx",
-                  "text": "This is my Text",
-                  "number": "This is my Number",
-                  "email": "jan.kowalski@email.com",
-                  "message": "Lorem ipsum dolor sit amet"
+                  "text": this.form.text,
+                  "number": this.form.number,
+                  "email": this.form.email,
+                  "message": this.form.message
                 },
               }).then(response => {
                 console.log(response);
