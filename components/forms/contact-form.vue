@@ -141,7 +141,7 @@ export default {
                 url: 'http://www.homeewaw.pl/send/',
                 data: {
                   "action": "send",
-                  "token": "IXNkYXNiTWtscG9pdS4xNTkyMDcxMjgx",
+                  "token": token,
                   "text": this.form.text,
                   "number": this.form.number,
                   "email": this.form.email,
