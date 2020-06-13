@@ -138,7 +138,7 @@ export default {
 
               this.$axios({
                 method: 'post',
-                url: 'http://homeewaw.pl/send/',
+                url: 'http://www.homeewaw.pl/send/',
                 data: {
                   "action": "send",
                   "token": "IXNkYXNiTWtscG9pdS4xNTkyMDcxMjgx",
