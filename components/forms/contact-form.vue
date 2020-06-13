@@ -153,6 +153,11 @@ export default {
                 if (response.data.ok) {
                   this.loading = false;
                   this.messageSent = true;
+
+                  this.form.text = null,
+                  this.form.number = null,
+                  this.form.email = null,
+                  this.form.message = null
                 }
               }).catch(error => {
                 console.error(error)
