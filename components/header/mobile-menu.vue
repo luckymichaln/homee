@@ -14,11 +14,7 @@
       >
         <a
           v-if="navEl.url !== '/blog'"
-          href="#"
-          v-scroll-to="{
-            el: `${navEl.url}`,
-            offset: -80
-          }"
+          :href="`${navEl.url}`"
         >
           <span
             class="link-text text--upper"
