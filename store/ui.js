@@ -1,5 +1,5 @@
 const state = () => ({
-  mobileMenuOpened: true,
+  mobileMenuOpened: false,
 })
 
 const mutations = {
