@@ -1,61 +1,66 @@
 <template>
   <aside class="aside-nav">
+    <nuxt-link
+        :to="{ name: 'index' }"
+        class="page-header__logo"
+      >
+      <img :src="logoUrl" alt="DataX" />
+    </nuxt-link>
     <ul class="nav-list">
       <li
         v-for="(navEl, i) in navList"
         :key="i"
-        class="nav-el"
+        class="heading--small"
       >
-        <prismic-link
-          v-if="!navEl.items.length"
-          :field="navEl.primary.link_url"
-          class="nav-el__link"
+        <a
+          v-if="navEl.url !== '/blog'"
+          href="#"
+          v-scroll-to="{
+            el: `${navEl.url}`,
+            offset: -80
+          }"
+        >
+          <span
+            class="link-text text--upper"
+            @click="openMobileMenu(false)"
+          >
+            {{ navEl.label }}
+          </span>
+        </a>
+        <nuxt-link
+          v-else
+          :to="{ name: 'blog' }"
           @click.native="openMobileMenu(false)"
         >
-          <span class="link-text">{{ navEl.primary.link_label }}</span>
-        </prismic-link>
-        <div
-          v-else
-          class="nav-el__submenu"
-          @mouseenter="openSubmenu(true)"
-          @mouseleave="openSubmenu(false)"
-        >
-          <span :class="submenuSpanClass(true)">{{ navEl.primary.link_label }}</span>
-          <transition name="submenu">
-            <div
-              v-if="submenuShouldOpen"
-              class="submenu-box"
-            >
-              <prismic-link
-                v-for="e in navEl.items"
-                :key="e.menu_link_url.id"
-                :field="e.menu_link_url"
-                :class="submenuLinkClass(e)"
-                @click.native="openMobileMenu(false)"
-              >
-                {{ e.menu_link_label }}
-              </prismic-link>
-            </div>
-          </transition>
-        </div>
+          <span class="link-text text--upper">{{ navEl.label }}</span>
+        </nuxt-link>
       </li>
     </ul>
+    <footer class="aside-nav__footer">
+      <pageFooterList :links="footerData.body" />
+      <p class="col-copy text">{{ footerData.footer_text }}</p>
+    </footer>
     <button
-      class="button button--red button--bordered"
+      class="button-close"
       @click="openMobileMenu(false)"
-    >
-      Close
-    </button>
+    />
   </aside>
 </template>
 
 <script>
+import pageFooterList from '~/components/footer/page-footer-list';
+
 export default {
   props: {
     navList: {
       type: Array,
       default: () => []
-    }
+    },
+    footerData: {
+      type: Object,
+      default: () => {},
+    },
+    logoUrl: String,
   },
 
   data () {
@@ -100,10 +105,10 @@ export default {
     document.getElementsByTagName('body')[0].classList.remove('frozen');
     document.getElementById('__nuxt').classList.remove('frozen');
     document.getElementById('__layout').classList.remove('frozen');
+  },
+
+  components: {
+    pageFooterList
   }
 }
 </script>
-
-<style>
-
-</style>

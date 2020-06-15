@@ -8,6 +8,14 @@
         <img :src="headerData.logo.url" alt="DataX" />
       </nuxt-link>
       <pageHeaderNav :navList="headerLinks" />
+      <button
+        class="button-open-mobile-menu"
+        @click="openMobileMenu(true)"
+      >
+        <span/>
+        <span/>
+        <span/>
+      </button>
     </div>
   </header>
 </template>
@@ -24,6 +32,12 @@ export default {
     headerLinks: {
       type: Array,
       default: () => [],
+    }
+  },
+
+  methods: {
+    openMobileMenu(open) {
+      this.$store.commit('ui/SET_MOBILE_MENU_OPEN', { mobileMenuOpened: open });
     }
   },
 

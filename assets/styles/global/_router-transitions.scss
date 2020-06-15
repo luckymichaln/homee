@@ -1,15 +1,18 @@
-.global-slide-enter-active, .global-slide-leave-active {
-  position: relative;
-  transform: translateY(0);
-  transition: .2s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
-
-.global-slide-enter {
-  transform: translateY(10px);
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 
-.global-slide-leave-to {
-  transform: translateY(-10px);
+.modal-contact-enter-active, .modal-contact-leave-active {
+  transform: scale(1);
+  transition: .4s;
+}
+
+.modal-contact-enter, .modal-contact-leave-to {
+  transform: scale(.95);
   opacity: 0;
 }

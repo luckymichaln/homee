@@ -14,8 +14,10 @@
     />
     <transition name="fade" mode="out-in">
       <mobileMenu
-        v-if="headerData && mobileMenuOpened"
-        :navList="headerData.body"
+        v-if="headerData && footerData && mobileMenuOpened"
+        :logoUrl="headerData.logo.url"
+        :navList="headerLinks"
+        :footerData="footerData"
       />
     </transition>
   </div>

@@ -13,13 +13,11 @@
             el: `${navEl.url}`,
             offset: -80
           }"
-          class="nav-el__link"
         >
           <span class="link-text text--upper">{{ navEl.label }}</span>
         </a>
         <nuxt-link
           v-else
-          class="nav-el__link"
           :to="{ name: 'blog' }"
         >
           <span class="link-text text--upper">{{ navEl.label }}</span>

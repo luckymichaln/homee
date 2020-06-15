@@ -40,6 +40,10 @@
         height: 100%;
         width: 100%;
       }
+
+      @include media(mobile) {
+        height: 220px;
+      }
     }
   }
 
