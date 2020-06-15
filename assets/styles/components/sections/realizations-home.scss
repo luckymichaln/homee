@@ -9,6 +9,16 @@
     .heading--big {
       margin-bottom: 44px;
     }
+
+    @include media(1100px) {
+      padding: 80px 30px 80px;
+      border-radius: 30px;
+    }
+
+    @include media(mobile) {
+      padding: 43px 43px 75px;
+      margin-bottom: 65px;
+    }
   }
 
   &-title {
@@ -44,6 +54,10 @@
       &__block:not(:last-child) {
         margin-bottom: 80px;
       }
+    }
+
+    @include media(mobile) {
+      flex-direction: column;
     }
   }
 

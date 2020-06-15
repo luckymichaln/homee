@@ -2,6 +2,12 @@
   position: relative;
   margin-bottom: 290px;
 
+  &__wrapper {
+    max-width: 1140px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+
   &__inner {
     position: relative;
     z-index: 10;
@@ -11,17 +17,35 @@
     margin: 0 auto;
     background-color: $color-white;
     box-shadow: 0 17px 74px -20px rgba(113, 113, 113, 0.19);
+
+    @include media(tablet) {
+      padding: 32px 30px 72px;
+    }
   }
 
   &__box {
     display: flex;
     justify-content: space-between;
+
+    @include media(mobile) {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
   }
 
   .box-col {
     display: flex;
     flex-direction: column;
     max-width: 455px;
+
+    &:first-child {
+      padding-right: 20px;
+
+      @include media(mobile) {
+        margin-bottom: 65px;
+        padding-right: 0;
+      }
+    }
   }
 
   .button-wrapper {
@@ -61,5 +85,9 @@
     transform: translateX(-50%);
     width: 100vw;
     max-width: 1530px;
+  }
+
+  @include media(mobile) {
+    margin-bottom: 135px;
   }
 }

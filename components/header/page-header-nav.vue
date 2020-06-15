@@ -15,14 +15,14 @@
           }"
           class="nav-el__link"
         >
-          <span class="link-text text--accent text--upper">{{ navEl.label }}</span>
+          <span class="link-text text--upper">{{ navEl.label }}</span>
         </a>
         <nuxt-link
           v-else
           class="nav-el__link"
           :to="{ name: 'blog' }"
         >
-          <span class="link-text text--accent text--upper">{{ navEl.label }}</span>
+          <span class="link-text text--upper">{{ navEl.label }}</span>
         </nuxt-link>
       </li>
     </ul>

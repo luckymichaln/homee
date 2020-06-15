@@ -4,23 +4,46 @@
   width: 100%;
   background-color: transparent;
 
+  &__logo {
+    display: flex;
+    flex-shrink: 0;
+    margin-right: 20px;
+
+    @include media(mobile) {
+      max-width: 130px;
+    }
+  }
+
   &__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 44px;
     padding-bottom: 44px;
+
+    @include media(mobile) {
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
   }
 
   &__nav {
     .nav-list {
       display: flex;
     }
+
+    @include media(mobile) {
+      display: none;
+    }
   }
 
   .nav-el {
     &:not(:first-child) {
       margin-left: 80px;
+
+      @include media(920px) {
+        margin-left: 45px;
+      }
     }
 
     &__link {

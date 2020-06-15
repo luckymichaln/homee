@@ -23,6 +23,23 @@
       &:last-child {
         align-items: flex-end;
       }
+
+      @include media(mobile) {
+        width: 100%;
+        align-items: center !important;
+
+        &:not(:nth-child(2)) {
+          margin-bottom: 40px;
+        }
+
+        &:nth-child(2) {
+          order: 1;
+        }
+      }
+    }
+
+    @include media(mobile) {
+      flex-direction: column;
     }
   }
 }

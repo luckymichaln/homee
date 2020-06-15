@@ -1,0 +1,29 @@
+@mixin media($value) {
+    @media(max-width: $value) {
+      @content ;
+    }
+    @if $value == hiRes {
+      @media (min-width: 1660px) { @content ; }
+    }
+    @if $value == desktopXL {
+      @media (min-width: 1400px) { @content ; }
+    }
+    @if $value == desktop {
+      @media (min-width: 1030px) { @content ; }
+    }
+    @else if $value == tablet {
+      @media (max-width: 960px) { @content ; }
+    }
+    @else if $value == gtMobile {
+      @media (min-width: 768px) { @content ; }
+    }
+    @else if $value == mobile {
+      @media (max-width: 767px) { @content ; }
+    }
+    @else if $value == mobileMD {
+      @media (min-width: 590px) { @content ; }
+    }
+    @else if $value == mobileXS {
+      @media (max-width: 420px) { @content ; }
+    }
+  }

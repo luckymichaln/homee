@@ -33,6 +33,10 @@ textarea {
 
   &.stamp-top {
     padding-top: 146px;
+
+    @include media(mobile) {
+      padding-top: 65px;
+    }
   }
 }
 
@@ -59,5 +63,9 @@ input[type=number]::-webkit-outer-spin-button {
   &--blog-post {
     max-width: $container-thin-width;
     margin: 0 auto;
+  }
+
+  @include media(mobile) {
+    padding: 0 43px;
   }
 }

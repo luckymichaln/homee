@@ -14,15 +14,19 @@
             </div>
             <div class="row-col">
               <p class="title text--upper">{{ phoneColTitle }}</p>
-              <prismic-rich-text
-                :field="phoneText"
+              <a
+                :href="`tel:${phoneText}`"
                 class="text"
-              />
+              >
+                {{ phoneText }}
+              </a>
               <p class="title text--upper">{{ emailColTitle }}</p>
-              <prismic-rich-text
-                :field="emailText"
+              <a
+                :href="`mailto:${emailText}`"
                 class="text"
-              />
+              >
+                {{ emailText }}
+              </a>
             </div>
           </div>
           <div class="col-info__image">
@@ -56,14 +60,8 @@ export default {
       type: Array,
       default: []
     },
-    phoneText: {
-      type: Array,
-      default: []
-    },
-    emailText: {
-      type: Array,
-      default: []
-    },
+    phoneText: String,
+    emailText: String,
     image: {
       type: Object,
       default: () => {}
