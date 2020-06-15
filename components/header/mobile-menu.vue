@@ -14,7 +14,7 @@
       >
         <a
           v-if="navEl.url !== '/blog'"
-          :href="`${navEl.url}`"
+          :href="`/${navEl.url}`"
         >
           <span
             class="link-text text--upper"
