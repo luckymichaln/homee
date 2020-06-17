@@ -15,15 +15,9 @@
         <nuxt-link
           v-if="navEl.url !== '/blog'"
           :to="{ path: '/', hash:`${navEl.url}`}"
-          v-scroll-to="{
-            el: `${navEl.url}`,
-            offset: -50,
-          }"
+          @click.native="ev => scroll(ev, navEl.url)"
         >
-          <span
-            class="link-text text--upper"
-            @click="openMobileMenu(false)"
-          >
+          <span class="link-text text--upper">
             {{ navEl.label }}
           </span>
         </nuxt-link>
@@ -48,6 +42,7 @@
 </template>
 
 <script>
+import VueScrollTo from 'vue-scrollto';
 import pageFooterList from '~/components/footer/page-footer-list';
 
 export default {
@@ -85,16 +80,16 @@ export default {
         'nav-el__link': true,
       }
     },
-    submenuSpanClass(submenu) {
-      return {
-        'link-text': true,
-        'link-text--submenu': submenu,
-        'link-text--submenu-opened': this.submenuShouldOpen,
-      }
-    },
     openSubmenu(shouldOpen) {
       this.submenuShouldOpen = shouldOpen;
     },
+
+    scroll(ev, anchor) {
+      ev.preventDefault();
+      VueScrollTo.scrollTo(anchor);
+      this.openMobileMenu(false);
+    },
+
     openMobileMenu(open) {
       this.$store.commit('ui/SET_MOBILE_MENU_OPEN', { mobileMenuOpened: open });
     }

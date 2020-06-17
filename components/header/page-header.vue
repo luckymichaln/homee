@@ -4,10 +4,6 @@
       <nuxt-link
         :to="{ name: 'index' }"
         class="page-header__logo"
-        v-scroll-to="{
-            el: '/',
-            offset: -50,
-        }"
       >
         <img :src="headerData.logo.url" alt="DataX" />
       </nuxt-link>

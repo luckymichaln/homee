@@ -18,7 +18,7 @@ export default {
   },
 
   mounted() {
-    if (this.$route.hash) {
+    if (this.$route.hash.length) {
       const element = document.querySelector(`${this.$route.hash}`)
       const topPos = element.getBoundingClientRect().top + window.pageYOffset
 

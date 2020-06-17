@@ -17,10 +17,6 @@ export default {
     ...mapGetters('blog', ['posts']),
   },
 
-  mounted () {
-    console.log(this.posts, '/blog')
-  },
-
   components: {
     blogPage
   }
