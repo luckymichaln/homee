@@ -23,19 +23,20 @@
           button_url: section.primary.block_button_link,
         }"
       />
-      <realizationsHome
+      <!-- <realizationsHome
         v-if="section.slice_type === 'realizations'"
         card
         :title="section.primary.section_title"
         :sliderTitle="section.primary.slider_title"
         :blocks="section.items"
-      />
-      <!-- <realizationsHomeNew
+      /> -->
+      <realizationsHomeNew
         v-if="section.slice_type === 'realizations_2'"
         :title="section.primary.section_title"
         :sliderTitle="section.primary.slider_title"
-        :blocks="section.items"
-      /> -->
+        :sliderText="section.primary.slider_text"
+        :slides="section.items"
+      />
       <contactHome
         v-if="section.slice_type === 'contact_form'"
         :sectionTitle="section.primary.section_title"

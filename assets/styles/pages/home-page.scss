@@ -52,7 +52,7 @@
     transform: translateX(-50%);
   }
 
-  .realizations-home::after {
+  .realizations-home--new::after {
     content: url(~assets/static/stripes/stripes-hp-4.svg);
     position: absolute;
     z-index: -1;

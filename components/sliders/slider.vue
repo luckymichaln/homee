@@ -1,10 +1,7 @@
 <template>
-  <section class="slider">
-    <div v-swiper:mySwiper="swiperOption">
-      <div
-        v-if="!newSlider"
-        class="swiper-wrapper"
-      >
+  <section class="slider swiper-nav">
+    <div v-swiper:mySwiper="swiperOptions">
+      <div class="swiper-wrapper">
         <div
           v-for="slide in slides"
           :key="slide.image.url"
@@ -13,25 +10,6 @@
           <img
             :src="slide.image.url"
             :srcset="`${slide.image.url} 1x, ${slide.imageRetina.url} 2x`"
-          />
-        </div>
-      </div>
-      <div
-        v-else
-        class="swiper-wrapper"
-      >
-        <div
-          v-for="slide in slides"
-          :key="slide.image_pre.url"
-          class="swiper-slide"
-        >
-          <img
-            :src="slide.image_pre.url"
-            :srcset="`${slide.image_pre.url} 1x, ${slide.image_pre.url} 2x`"
-          />
-          <img
-            :src="slide.image_post.url"
-            :srcset="`${slide.image_post.url} 1x, ${slide.image_post.url} 2x`"
           />
         </div>
       </div>
@@ -57,12 +35,11 @@ export default {
       type: Array,
       default: () => []
     },
-    newSlider: Boolean,
   },
 
   data() {
     return {
-      swiperOption: {
+      swiperOptions: {
         pagination: {
           el: '.swiper-pagination',
           type: 'progressbar'
@@ -70,7 +47,7 @@ export default {
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
-        }
+        },
       }
     }
   }
