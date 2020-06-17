@@ -12,9 +12,13 @@
         :key="i"
         class="heading--small"
       >
-        <a
+        <nuxt-link
           v-if="navEl.url !== '/blog'"
-          :href="`/${navEl.url}`"
+          :to="{ path: '/', hash:`${navEl.url}`}"
+          v-scroll-to="{
+            el: `${navEl.url}`,
+            offset: -50,
+          }"
         >
           <span
             class="link-text text--upper"
@@ -22,7 +26,7 @@
           >
             {{ navEl.label }}
           </span>
-        </a>
+        </nuxt-link>
         <nuxt-link
           v-else
           :to="{ name: 'blog' }"
