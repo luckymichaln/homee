@@ -18,14 +18,16 @@ export default {
   },
 
   mounted() {
-    if (window.innerWidth <= 767 && this.$route.hash) {
+    if (this.$route.hash) {
       const element = document.querySelector(`${this.$route.hash}`)
       const topPos = element.getBoundingClientRect().top + window.pageYOffset
 
-      window.scrollTo({
-        top: topPos,
-        behavior: 'smooth'
-      })
+      setTimeout(() => {
+        window.scrollTo({
+          top: topPos,
+          behavior: 'smooth'
+        })
+      }, 10)
     }
   },
 

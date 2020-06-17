@@ -30,6 +30,12 @@
         :sliderTitle="section.primary.slider_title"
         :blocks="section.items"
       />
+      <!-- <realizationsHomeNew
+        v-if="section.slice_type === 'realizations_2'"
+        :title="section.primary.section_title"
+        :sliderTitle="section.primary.slider_title"
+        :blocks="section.items"
+      /> -->
       <contactHome
         v-if="section.slice_type === 'contact_form'"
         :sectionTitle="section.primary.section_title"
@@ -51,6 +57,7 @@
 import serviceHome from '~/components/home/sections/service-home';
 import aboutUsHome from '~/components/home/sections/about-us-home';
 import realizationsHome from '~/components/home/sections/realizations-home';
+import realizationsHomeNew from '~/components/home/sections/realizations-home-new';
 import contactHome from '~/components/home/sections/contact-home';
 
 export default {
@@ -65,6 +72,7 @@ export default {
     serviceHome,
     aboutUsHome,
     realizationsHome,
+    realizationsHomeNew,
     contactHome
   }
 }

@@ -4,6 +4,10 @@
       <nuxt-link
         :to="{ name: 'index' }"
         class="page-header__logo"
+        v-scroll-to="{
+            el: '/',
+            offset: -50,
+        }"
       >
         <img :src="headerData.logo.url" alt="DataX" />
       </nuxt-link>
@@ -39,10 +43,6 @@ export default {
     openMobileMenu(open) {
       this.$store.commit('ui/SET_MOBILE_MENU_OPEN', { mobileMenuOpened: open });
     }
-  },
-
-  mounted () {
-    console.log(this.headerData)
   },
 
   components: {
