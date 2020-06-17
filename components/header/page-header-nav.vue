@@ -6,19 +6,22 @@
         :key="i"
         class="nav-el"
       >
+        <p
+          v-if="navEl.url !== '/blog' && $route.name === 'index'"
+          @click="ev => scroll(ev, navEl.url)"
+        >
+          <span class="link-text text--upper">{{ navEl.label }}</span>
+        </p>
         <nuxt-link
-          v-if="navEl.url !== '/blog'"
+          v-else-if="navEl.url !== '/blog' && $route.name !== 'index'"
           :to="{ path: '/', hash:`${navEl.url}`}"
-          v-scroll-to="{
-            el: `${navEl.url}`,
-            offset: -50,
-          }"
+          @click.native="ev => scroll(ev, navEl.url)"
         >
           <span class="link-text text--upper">{{ navEl.label }}</span>
         </nuxt-link>
         <nuxt-link
           v-else
-          :to="{ name: 'blog' }"
+          :to="{ path: '/blog' }"
         >
           <span class="link-text text--upper">{{ navEl.label }}</span>
         </nuxt-link>
@@ -28,6 +31,8 @@
 </template>
 
 <script>
+import VueScrollTo from 'vue-scrollto';
+
 export default {
   props: {
     navList: {
@@ -46,10 +51,11 @@ export default {
   },
 
   methods: {
-    submenuLinkClass(el) {
-      return {
-        'nav-el__link': true
-      }
+    scroll(ev, anchor) {
+      ev.preventDefault();
+      VueScrollTo.scrollTo(anchor, 500, {
+        offset: -50
+      });
     }
   }
 }
