@@ -16,7 +16,7 @@
           <div class="custom-pagination" slot="pagination">
             <span class="custom-pagination__start">01</span>
             <div class="swiper-pagination" />
-            <span class="custom-pagination__end">0 {{ slides.length }}</span>
+            <span class="custom-pagination__end">0{{ slides.length }}</span>
           </div>
           <div class="buttons">
             <div class="swiper-button-prev" slot="button-prev" />
@@ -35,26 +35,29 @@
                 :key="index"
                 class="swiper-slide"
               >
-                <div class="swiper-slide__image image-pre">
-                  <img
-                    :src="slide.image_pre.url"
-                    :srcset="`${slide.image_pre.url} 1x, ${slide.image_pre.url} 2x`"
-                  />
+                <div class="slide__images">
+                  <div class="swiper-slide__image image-pre">
+                    <img
+                      :src="slide.image_pre.url"
+                      :srcset="`${slide.image_pre.url} 1x, ${slide.image_pre.url} 2x`"
+                    />
+                  </div>
+                  <div class="swiper-slide__image image-post">
+                    <img
+                      :src="slide.image_post.url"
+                    :srcset="`${slide.image_post.url} 1x, ${slide.image_post.url} 2x`"
+                    />
+                  </div>
                 </div>
-                <div class="swiper-slide__image image-post">
-                  <img
-                    :src="slide.image_post.url"
-                  :srcset="`${slide.image_post.url} 1x, ${slide.image_post.url} 2x`"
+                <div class="slider__text">
+                  <prismic-rich-text
+                    :field="slide.slide_text"
                   />
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <prismic-rich-text
-          :field="sliderText"
-          class="col-slider__text"
-        />
       </div>
     </div>
   </section>
@@ -82,7 +85,6 @@ export default {
 
   data() {
     return {
-      slides: [],
       swiperOptions: {
         fadeEffect: {
           crossFade: true
@@ -109,7 +111,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

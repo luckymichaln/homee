@@ -6,15 +6,6 @@
   box-shadow: 0 17px 74px -20px rgba(113, 113, 113, 0.19);
   background-color: #ffffff;
 
-  // &::after {
-  //   content: url(~assets/static/stripes/stripes-hp-4.svg);
-  //   position: absolute;
-  //   z-index: -1;
-  //   top: 93%;
-  //   left: 50%;
-  //   transform: translateX(-50%);
-  // }
-
   .col {
     width: 30%;
 
@@ -113,31 +104,41 @@
   .swiper-container {
     width: 100%;
     max-width: 750px;
-    height: 360px;
     position: static !important;
-
-    @include media(mobile) {
-      height: 610px;
-    }
   }
 
   .swiper-wrapper {
-    height: 360px;
+    height: 450px;
     width: 100%;
     max-width: 750px;
 
     @include media(mobile) {
-      height: 610px;
+      height: auto;
     }
+  }
+
+  .slide__images {
+    display: flex;
+    justify-content: space-between;
+    height: 360px;
+
+    @include media(mobile) {
+      flex-direction: column;
+    }
+  }
+
+  .slider__text {
+    margin-top: 20px;
   }
 
   .swiper-slide {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 
     &::after {
       content: none;
     }
+
     .swiper-slide__image {
       position: relative;
       width: calc(50% - 15px);
@@ -186,12 +187,14 @@
     }
 
     @include media(mobile) {
-      flex-direction: column;
-
       .swiper-slide__image {
         width: 100%;
         height: calc(50% - 15px);
       }
     }
+  }
+
+  @include media(mobile) {
+    margin-bottom: 85px;
   }
 }
