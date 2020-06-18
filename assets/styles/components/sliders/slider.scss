@@ -2,6 +2,10 @@
 .swiper-nav {
   .swiper-wrapper {
     height: 400px;
+
+    @include media(mobile) {
+      height: unset;
+    }
   }
 
   .custom-pagination {

@@ -56,17 +56,17 @@
         }
       }
     }
+
+    .benefits-row {
+      flex-flow: column;
+
+      .benefits-col {
+        width: 100%;
+      }
+    }
   }
 
   &__benefits .heading--small {
     margin-bottom: 32px;
-  }
-
-  .benefits-row {
-    flex-flow: column;
-
-    .benefits-col {
-      width: 100%;
-    }
   }
 }
