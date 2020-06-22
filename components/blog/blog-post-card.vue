@@ -16,7 +16,7 @@
       </div>
     </header>
     <nuxt-link
-      :to="`blog/${post.uid}`"
+      :to="{ name: 'blog-slug', params: { slug: `${post.uid}` } }"
     >
       <div class="card-image">
         <img :src="post.data.post_hero_image.url" :alt="post.data.post_hero_image.alt" />
@@ -25,11 +25,6 @@
         <span class="text">{{ postShortText }}</span>
       </div>
     </nuxt-link>
-    <!-- <prismic-rich-text
-      ref="postText"
-      :field="post.data.post_text"
-      class="text"
-    /> -->
   </div>
 </template>
 
